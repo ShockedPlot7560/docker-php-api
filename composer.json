@@ -1,5 +1,5 @@
 {
-    "name": "beluga-php/docker-php-api",
+    "name": "shockedplot7560/docker-php-api",
     "license": "MIT",
     "type": "library",
     "description": "Docker API generated files from OpenAPI Specification",
@@ -39,9 +39,9 @@
         "psr/http-factory-implementation": "*",
         "psr/http-message-implementation": "*",
         "symfony/deprecation-contracts": "^3.3",
-        "symfony/options-resolver": "^6.3",
-        "symfony/serializer": "^6.3",
-        "symfony/validator": "^6.3"
+        "symfony/options-resolver": "^7.0",
+        "symfony/serializer": "^7.0",
+        "symfony/validator": "^7.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.8",
