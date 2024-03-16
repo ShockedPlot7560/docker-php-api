@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Docker\API\Model;
 
 class ExecIdStartPostBody extends \ArrayObject
@@ -10,10 +8,9 @@ class ExecIdStartPostBody extends \ArrayObject
      * @var array
      */
     protected $initialized = [];
-
-    public function isInitialized($property): bool
+    public function isInitialized($property) : bool
     {
-        return \array_key_exists($property, $this->initialized);
+        return array_key_exists($property, $this->initialized);
     }
     /**
      * Detach from the command.
@@ -30,68 +27,73 @@ class ExecIdStartPostBody extends \ArrayObject
     /**
      * Initial console size, as an `[height, width]` array.
      *
-     * @var int[]|null
+     * @var list<int>|null
      */
     protected $consoleSize;
-
     /**
      * Detach from the command.
+     *
+     * @return bool|null
      */
-    public function getDetach(): ?bool
+    public function getDetach() : ?bool
     {
         return $this->detach;
     }
-
     /**
      * Detach from the command.
+     *
+     * @param bool|null $detach
+     *
+     * @return self
      */
-    public function setDetach(?bool $detach): self
+    public function setDetach(?bool $detach) : self
     {
         $this->initialized['detach'] = true;
         $this->detach = $detach;
-
         return $this;
     }
-
     /**
      * Allocate a pseudo-TTY.
+     *
+     * @return bool|null
      */
-    public function getTty(): ?bool
+    public function getTty() : ?bool
     {
         return $this->tty;
     }
-
     /**
      * Allocate a pseudo-TTY.
+     *
+     * @param bool|null $tty
+     *
+     * @return self
      */
-    public function setTty(?bool $tty): self
+    public function setTty(?bool $tty) : self
     {
         $this->initialized['tty'] = true;
         $this->tty = $tty;
-
         return $this;
     }
-
     /**
      * Initial console size, as an `[height, width]` array.
      *
-     * @return int[]|null
+     * @return list<int>|null
      */
-    public function getConsoleSize(): ?array
+    public function getConsoleSize() : ?array
     {
         return $this->consoleSize;
     }
-
     /**
      * Initial console size, as an `[height, width]` array.
      *
-     * @param int[]|null $consoleSize
+     * @param list<int>|null $consoleSize
+     *
+     * @return self
      */
-    public function setConsoleSize(?array $consoleSize): self
+    public function setConsoleSize(?array $consoleSize) : self
     {
         $this->initialized['consoleSize'] = true;
         $this->consoleSize = $consoleSize;
-
         return $this;
     }
 }

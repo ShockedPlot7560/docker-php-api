@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Docker\API\Model;
 
 class VolumeCreateOptions extends \ArrayObject
@@ -10,10 +8,9 @@ class VolumeCreateOptions extends \ArrayObject
      * @var array
      */
     protected $initialized = [];
-
-    public function isInitialized($property): bool
+    public function isInitialized($property) : bool
     {
-        return \array_key_exists($property, $this->initialized);
+        return array_key_exists($property, $this->initialized);
     }
     /**
      * The new volume's name. If not specified, Docker generates a name.
@@ -28,11 +25,12 @@ class VolumeCreateOptions extends \ArrayObject
      */
     protected $driver = 'local';
     /**
-     * A mapping of driver options and values. These options are
-     * passed directly to the driver and are driver specific.
-     *
-     * @var array<string, string>|null
-     */
+    * A mapping of driver options and values. These options are
+    passed directly to the driver and are driver specific.
+    
+    *
+    * @var array<string, string>|null
+    */
     protected $driverOpts;
     /**
      * User-defined key/value metadata.
@@ -46,109 +44,118 @@ class VolumeCreateOptions extends \ArrayObject
      * @var ClusterVolumeSpec|null
      */
     protected $clusterVolumeSpec;
-
     /**
      * The new volume's name. If not specified, Docker generates a name.
+     *
+     * @return string|null
      */
-    public function getName(): ?string
+    public function getName() : ?string
     {
         return $this->name;
     }
-
     /**
      * The new volume's name. If not specified, Docker generates a name.
+     *
+     * @param string|null $name
+     *
+     * @return self
      */
-    public function setName(?string $name): self
+    public function setName(?string $name) : self
     {
         $this->initialized['name'] = true;
         $this->name = $name;
-
         return $this;
     }
-
     /**
      * Name of the volume driver to use.
+     *
+     * @return string|null
      */
-    public function getDriver(): ?string
+    public function getDriver() : ?string
     {
         return $this->driver;
     }
-
     /**
      * Name of the volume driver to use.
+     *
+     * @param string|null $driver
+     *
+     * @return self
      */
-    public function setDriver(?string $driver): self
+    public function setDriver(?string $driver) : self
     {
         $this->initialized['driver'] = true;
         $this->driver = $driver;
-
         return $this;
     }
-
     /**
-     * A mapping of driver options and values. These options are
-     * passed directly to the driver and are driver specific.
-     *
-     * @return array<string, string>|null
-     */
-    public function getDriverOpts(): ?iterable
+    * A mapping of driver options and values. These options are
+    passed directly to the driver and are driver specific.
+    
+    *
+    * @return array<string, string>|null
+    */
+    public function getDriverOpts() : ?iterable
     {
         return $this->driverOpts;
     }
-
     /**
-     * A mapping of driver options and values. These options are
-     * passed directly to the driver and are driver specific.
-     *
-     * @param array<string, string>|null $driverOpts
-     */
-    public function setDriverOpts(?iterable $driverOpts): self
+    * A mapping of driver options and values. These options are
+    passed directly to the driver and are driver specific.
+    
+    *
+    * @param array<string, string>|null $driverOpts
+    *
+    * @return self
+    */
+    public function setDriverOpts(?iterable $driverOpts) : self
     {
         $this->initialized['driverOpts'] = true;
         $this->driverOpts = $driverOpts;
-
         return $this;
     }
-
     /**
      * User-defined key/value metadata.
      *
      * @return array<string, string>|null
      */
-    public function getLabels(): ?iterable
+    public function getLabels() : ?iterable
     {
         return $this->labels;
     }
-
     /**
      * User-defined key/value metadata.
      *
      * @param array<string, string>|null $labels
+     *
+     * @return self
      */
-    public function setLabels(?iterable $labels): self
+    public function setLabels(?iterable $labels) : self
     {
         $this->initialized['labels'] = true;
         $this->labels = $labels;
-
         return $this;
     }
-
     /**
      * Cluster-specific options used to create the volume.
+     *
+     * @return ClusterVolumeSpec|null
      */
-    public function getClusterVolumeSpec(): ?ClusterVolumeSpec
+    public function getClusterVolumeSpec() : ?ClusterVolumeSpec
     {
         return $this->clusterVolumeSpec;
     }
-
     /**
      * Cluster-specific options used to create the volume.
+     *
+     * @param ClusterVolumeSpec|null $clusterVolumeSpec
+     *
+     * @return self
      */
-    public function setClusterVolumeSpec(?ClusterVolumeSpec $clusterVolumeSpec): self
+    public function setClusterVolumeSpec(?ClusterVolumeSpec $clusterVolumeSpec) : self
     {
         $this->initialized['clusterVolumeSpec'] = true;
         $this->clusterVolumeSpec = $clusterVolumeSpec;
-
         return $this;
     }
 }

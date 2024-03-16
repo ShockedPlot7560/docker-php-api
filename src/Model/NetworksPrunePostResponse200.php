@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Docker\API\Model;
 
 class NetworksPrunePostResponse200 extends \ArrayObject
@@ -10,38 +8,36 @@ class NetworksPrunePostResponse200 extends \ArrayObject
      * @var array
      */
     protected $initialized = [];
-
-    public function isInitialized($property): bool
+    public function isInitialized($property) : bool
     {
-        return \array_key_exists($property, $this->initialized);
+        return array_key_exists($property, $this->initialized);
     }
     /**
-     * Networks that were deleted.
+     * Networks that were deleted
      *
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $networksDeleted;
-
     /**
-     * Networks that were deleted.
+     * Networks that were deleted
      *
-     * @return string[]|null
+     * @return list<string>|null
      */
-    public function getNetworksDeleted(): ?array
+    public function getNetworksDeleted() : ?array
     {
         return $this->networksDeleted;
     }
-
     /**
-     * Networks that were deleted.
+     * Networks that were deleted
      *
-     * @param string[]|null $networksDeleted
+     * @param list<string>|null $networksDeleted
+     *
+     * @return self
      */
-    public function setNetworksDeleted(?array $networksDeleted): self
+    public function setNetworksDeleted(?array $networksDeleted) : self
     {
         $this->initialized['networksDeleted'] = true;
         $this->networksDeleted = $networksDeleted;
-
         return $this;
     }
 }

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Docker\API\Model;
 
 class OCIDescriptor extends \ArrayObject
@@ -10,10 +8,9 @@ class OCIDescriptor extends \ArrayObject
      * @var array
      */
     protected $initialized = [];
-
-    public function isInitialized($property): bool
+    public function isInitialized($property) : bool
     {
-        return \array_key_exists($property, $this->initialized);
+        return array_key_exists($property, $this->initialized);
     }
     /**
      * The media type of the object this schema refers to.
@@ -33,61 +30,70 @@ class OCIDescriptor extends \ArrayObject
      * @var int|null
      */
     protected $size;
-
     /**
      * The media type of the object this schema refers to.
+     *
+     * @return string|null
      */
-    public function getMediaType(): ?string
+    public function getMediaType() : ?string
     {
         return $this->mediaType;
     }
-
     /**
      * The media type of the object this schema refers to.
+     *
+     * @param string|null $mediaType
+     *
+     * @return self
      */
-    public function setMediaType(?string $mediaType): self
+    public function setMediaType(?string $mediaType) : self
     {
         $this->initialized['mediaType'] = true;
         $this->mediaType = $mediaType;
-
         return $this;
     }
-
     /**
      * The digest of the targeted content.
+     *
+     * @return string|null
      */
-    public function getDigest(): ?string
+    public function getDigest() : ?string
     {
         return $this->digest;
     }
-
     /**
      * The digest of the targeted content.
+     *
+     * @param string|null $digest
+     *
+     * @return self
      */
-    public function setDigest(?string $digest): self
+    public function setDigest(?string $digest) : self
     {
         $this->initialized['digest'] = true;
         $this->digest = $digest;
-
         return $this;
     }
-
     /**
      * The size in bytes of the blob.
+     *
+     * @return int|null
      */
-    public function getSize(): ?int
+    public function getSize() : ?int
     {
         return $this->size;
     }
-
     /**
      * The size in bytes of the blob.
+     *
+     * @param int|null $size
+     *
+     * @return self
      */
-    public function setSize(?int $size): self
+    public function setSize(?int $size) : self
     {
         $this->initialized['size'] = true;
         $this->size = $size;
-
         return $this;
     }
 }

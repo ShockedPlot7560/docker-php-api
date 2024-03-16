@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Docker\API\Model;
 
 class ProgressDetail extends \ArrayObject
@@ -10,43 +8,64 @@ class ProgressDetail extends \ArrayObject
      * @var array
      */
     protected $initialized = [];
-
-    public function isInitialized($property): bool
+    public function isInitialized($property) : bool
     {
-        return \array_key_exists($property, $this->initialized);
+        return array_key_exists($property, $this->initialized);
     }
     /**
+     * 
+     *
      * @var int|null
      */
     protected $current;
     /**
+     * 
+     *
      * @var int|null
      */
     protected $total;
-
-    public function getCurrent(): ?int
+    /**
+     * 
+     *
+     * @return int|null
+     */
+    public function getCurrent() : ?int
     {
         return $this->current;
     }
-
-    public function setCurrent(?int $current): self
+    /**
+     * 
+     *
+     * @param int|null $current
+     *
+     * @return self
+     */
+    public function setCurrent(?int $current) : self
     {
         $this->initialized['current'] = true;
         $this->current = $current;
-
         return $this;
     }
-
-    public function getTotal(): ?int
+    /**
+     * 
+     *
+     * @return int|null
+     */
+    public function getTotal() : ?int
     {
         return $this->total;
     }
-
-    public function setTotal(?int $total): self
+    /**
+     * 
+     *
+     * @param int|null $total
+     *
+     * @return self
+     */
+    public function setTotal(?int $total) : self
     {
         $this->initialized['total'] = true;
         $this->total = $total;
-
         return $this;
     }
 }

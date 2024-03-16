@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Docker\API\Model;
 
 class VolumeListResponse extends \ArrayObject
@@ -10,67 +8,64 @@ class VolumeListResponse extends \ArrayObject
      * @var array
      */
     protected $initialized = [];
-
-    public function isInitialized($property): bool
+    public function isInitialized($property) : bool
     {
-        return \array_key_exists($property, $this->initialized);
+        return array_key_exists($property, $this->initialized);
     }
     /**
-     * List of volumes.
+     * List of volumes
      *
-     * @var Volume[]|null
+     * @var list<Volume>|null
      */
     protected $volumes;
     /**
      * Warnings that occurred when fetching the list of volumes.
      *
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $warnings;
-
     /**
-     * List of volumes.
+     * List of volumes
      *
-     * @return Volume[]|null
+     * @return list<Volume>|null
      */
-    public function getVolumes(): ?array
+    public function getVolumes() : ?array
     {
         return $this->volumes;
     }
-
     /**
-     * List of volumes.
+     * List of volumes
      *
-     * @param Volume[]|null $volumes
+     * @param list<Volume>|null $volumes
+     *
+     * @return self
      */
-    public function setVolumes(?array $volumes): self
+    public function setVolumes(?array $volumes) : self
     {
         $this->initialized['volumes'] = true;
         $this->volumes = $volumes;
-
         return $this;
     }
-
     /**
      * Warnings that occurred when fetching the list of volumes.
      *
-     * @return string[]|null
+     * @return list<string>|null
      */
-    public function getWarnings(): ?array
+    public function getWarnings() : ?array
     {
         return $this->warnings;
     }
-
     /**
      * Warnings that occurred when fetching the list of volumes.
      *
-     * @param string[]|null $warnings
+     * @param list<string>|null $warnings
+     *
+     * @return self
      */
-    public function setWarnings(?array $warnings): self
+    public function setWarnings(?array $warnings) : self
     {
         $this->initialized['warnings'] = true;
         $this->warnings = $warnings;
-
         return $this;
     }
 }

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Docker\API\Model;
 
 class VolumesNamePutBody extends \ArrayObject
@@ -10,10 +8,9 @@ class VolumesNamePutBody extends \ArrayObject
      * @var array
      */
     protected $initialized = [];
-
-    public function isInitialized($property): bool
+    public function isInitialized($property) : bool
     {
-        return \array_key_exists($property, $this->initialized);
+        return array_key_exists($property, $this->initialized);
     }
     /**
      * Cluster-specific options used to create the volume.
@@ -21,23 +18,26 @@ class VolumesNamePutBody extends \ArrayObject
      * @var ClusterVolumeSpec|null
      */
     protected $spec;
-
     /**
      * Cluster-specific options used to create the volume.
+     *
+     * @return ClusterVolumeSpec|null
      */
-    public function getSpec(): ?ClusterVolumeSpec
+    public function getSpec() : ?ClusterVolumeSpec
     {
         return $this->spec;
     }
-
     /**
      * Cluster-specific options used to create the volume.
+     *
+     * @param ClusterVolumeSpec|null $spec
+     *
+     * @return self
      */
-    public function setSpec(?ClusterVolumeSpec $spec): self
+    public function setSpec(?ClusterVolumeSpec $spec) : self
     {
         $this->initialized['spec'] = true;
         $this->spec = $spec;
-
         return $this;
     }
 }

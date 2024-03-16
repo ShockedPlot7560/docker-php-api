@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Docker\API\Model;
 
 class PluginSettings extends \ArrayObject
@@ -10,101 +8,120 @@ class PluginSettings extends \ArrayObject
      * @var array
      */
     protected $initialized = [];
-
-    public function isInitialized($property): bool
+    public function isInitialized($property) : bool
     {
-        return \array_key_exists($property, $this->initialized);
+        return array_key_exists($property, $this->initialized);
     }
     /**
-     * @var PluginMount[]|null
+     * 
+     *
+     * @var list<PluginMount>|null
      */
     protected $mounts;
     /**
-     * @var string[]|null
+     * 
+     *
+     * @var list<string>|null
      */
     protected $env;
     /**
-     * @var string[]|null
+     * 
+     *
+     * @var list<string>|null
      */
     protected $args;
     /**
-     * @var PluginDevice[]|null
+     * 
+     *
+     * @var list<PluginDevice>|null
      */
     protected $devices;
-
     /**
-     * @return PluginMount[]|null
+     * 
+     *
+     * @return list<PluginMount>|null
      */
-    public function getMounts(): ?array
+    public function getMounts() : ?array
     {
         return $this->mounts;
     }
-
     /**
-     * @param PluginMount[]|null $mounts
+     * 
+     *
+     * @param list<PluginMount>|null $mounts
+     *
+     * @return self
      */
-    public function setMounts(?array $mounts): self
+    public function setMounts(?array $mounts) : self
     {
         $this->initialized['mounts'] = true;
         $this->mounts = $mounts;
-
         return $this;
     }
-
     /**
-     * @return string[]|null
+     * 
+     *
+     * @return list<string>|null
      */
-    public function getEnv(): ?array
+    public function getEnv() : ?array
     {
         return $this->env;
     }
-
     /**
-     * @param string[]|null $env
+     * 
+     *
+     * @param list<string>|null $env
+     *
+     * @return self
      */
-    public function setEnv(?array $env): self
+    public function setEnv(?array $env) : self
     {
         $this->initialized['env'] = true;
         $this->env = $env;
-
         return $this;
     }
-
     /**
-     * @return string[]|null
+     * 
+     *
+     * @return list<string>|null
      */
-    public function getArgs(): ?array
+    public function getArgs() : ?array
     {
         return $this->args;
     }
-
     /**
-     * @param string[]|null $args
+     * 
+     *
+     * @param list<string>|null $args
+     *
+     * @return self
      */
-    public function setArgs(?array $args): self
+    public function setArgs(?array $args) : self
     {
         $this->initialized['args'] = true;
         $this->args = $args;
-
         return $this;
     }
-
     /**
-     * @return PluginDevice[]|null
+     * 
+     *
+     * @return list<PluginDevice>|null
      */
-    public function getDevices(): ?array
+    public function getDevices() : ?array
     {
         return $this->devices;
     }
-
     /**
-     * @param PluginDevice[]|null $devices
+     * 
+     *
+     * @param list<PluginDevice>|null $devices
+     *
+     * @return self
      */
-    public function setDevices(?array $devices): self
+    public function setDevices(?array $devices) : self
     {
         $this->initialized['devices'] = true;
         $this->devices = $devices;
-
         return $this;
     }
 }
